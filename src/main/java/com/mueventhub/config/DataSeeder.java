@@ -38,6 +38,7 @@ public class DataSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (colleges.count() > 0) {
+            addVcet();
             return;
         }
 
@@ -104,7 +105,18 @@ public class DataSeeder implements CommandLineRunner {
         event(mithibai, "Last Year's Fest Recap (Demo, past event)", EventType.CULTURAL, "Campus",
                 today.minusDays(40), today.minusDays(38), today.minusDays(45), "Free", null,
                 "A past event kept in the list to show how finished events appear.");
+                   addVcet();
     }
+           private void addVcet() {
+           if (reps.existsByUsernameIgnoreCase("vcet")) {
+               return;
+           }
+           College vcet = colleges.findByNameIgnoreCase("Vidyavardhini's College of Engineering and Technology")
+                   .orElseGet(() -> colleges.save(new College(
+                           "Vidyavardhini's College of Engineering and Technology", "Vasai",
+                           "Engineering college in Vasai affiliated to the University of Mumbai.", null)));
+           reps.save(new Representative("vcet", encoder.encode("vcet123"), "VCET Events Team", vcet));
+       }
 
     private void rep(String username, String fullName, College college) {
         reps.save(new Representative(username, encoder.encode(DEMO_PASSWORD), fullName, college));
