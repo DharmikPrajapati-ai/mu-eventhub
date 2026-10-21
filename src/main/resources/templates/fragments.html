@@ -3,7 +3,7 @@
 <head th:fragment="head(title)">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title th:text="${title} + ' · MU EventHub'">MU EventHub</title>
+    <title th:text="${title} + ' · Hackverse'">Hackverse</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 
 <header th:fragment="nav" class="site-header">
     <div class="wrap nav">
-        <a class="brand" th:href="@{/}"><span class="brand-mark">MU</span> EventHub</a>
+        <a class="brand" th:href="@{/}"><span class="brand-mark">H</span> Hackverse</a>
         <nav class="nav-links">
             <a th:href="@{/events}">Events</a>
             <a th:href="@{/colleges}">Colleges</a>
@@ -32,7 +32,7 @@
 
 <footer th:fragment="footer" class="site-footer">
     <div class="wrap">
-        <p>MU EventHub &middot; a student project listing events from colleges affiliated to the University of Mumbai.</p>
+        <p>Hackverse &middot; a student project listing events from colleges affiliated to the University of Mumbai.</p>
         <p class="muted">Unofficial, not run by the University of Mumbai. Demo events are placeholders &mdash; always confirm details with the organising college.</p>
     </div>
 </footer>
